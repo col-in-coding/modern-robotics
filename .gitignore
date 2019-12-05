@@ -1,3 +1,5 @@
 .DS_Store
 .idea
 
+# pycharm project file
+__pycache__
