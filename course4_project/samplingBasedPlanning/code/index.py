@@ -10,12 +10,13 @@ def main():
         header=None, names=['x', 'y', 'd']
     ).sort_index()
     obstacle_list = obstacle_list.to_numpy()
-    # initiate the sampler
+    # initiate the sampler with each dimension divided into 12, the obstacles and robot radius 0.03
     sampler = rrt.RrtSampling(12, obstacle_list, 0.03)
 
     # maximum try time
     n = 20
     while n > 0:
+        # sampling on workspace, build a search tree with maximum 100 nodes
         res = sampler.run(100)
         print('success: ', res['success'])
         if res['success']:
